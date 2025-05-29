@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "name": "duy",
+  "version": "1.0.0",
+  "description": "Duy",
+  "main": "index.js",
+  "scripts": {
+    "test": "s"
+  },
+  "author": "",
+  "license": "ISC"
+}
