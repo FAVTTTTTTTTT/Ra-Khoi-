@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Route trang chủ
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Trang Chủ', message: 'Chào mừng bạn đến với trang chủ!' });
+    res.render('Home', { title: 'Trang Chủ', message: 'Chào mừng bạn đến với trang chủ!' });
 });
 
 app.listen(PORT, () => {
