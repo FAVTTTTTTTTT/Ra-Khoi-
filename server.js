@@ -14,7 +14,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.render('Home', { title: 'Trang Chủ', message: 'Chào mừng bạn đến với trang chủ!' });
 });
-
+// Route trang thực đơn
+app.get('/menu', (req, res) => {
+    res.render('Menu', { title: 'Thực Đơn' });
+});
 app.listen(PORT, () => {
     console.log(`Server đang chạy tại http://localhost:${PORT}`);
 });

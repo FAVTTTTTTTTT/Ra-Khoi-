@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực Đơn | Seefood Restaurant</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #fffbe7 100%);
+            font-family: 'Roboto', Arial, sans-serif;
+            color: #222;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%) !important;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+
+        .navbar-brand,
+        .nav-link,
+        .btn-order {
+            color: #fff !important;
+        }
+
+        .section-title {
+            color: #0093e9;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 900;
+            margin-bottom: 32px;
+            letter-spacing: 1px;
+            font-size: 2.3rem;
+            text-transform: uppercase;
+            text-shadow: 1px 2px 8px #80d0c7a0;
+        }
+
+        .menu-category {
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #0093e9;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-top: 32px;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+
+        .menu-item-card {
+            border: none;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px #0093e91a;
+            overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+            background: #fff;
+        }
+
+        .menu-item-card:hover {
+            box-shadow: 0 8px 32px #0093e933;
+            transform: translateY(-6px) scale(1.02);
+        }
+
+        .menu-item-img {
+            height: 180px;
+            object-fit: cover;
+            border-radius: 18px 18px 0 0;
+            border-bottom: 4px solid #ffd700;
+        }
+
+        .menu-item-title {
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #0093e9;
+            font-weight: 800;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+
+        .menu-item-desc {
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .menu-item-price {
+            color: #e4002b;
+            font-weight: 900;
+            font-size: 1.1rem;
+            margin-top: 8px;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+
+        .footer {
+            background: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%);
+            color: #fff;
+            padding: 30px 0 10px 0;
+            margin-top: 60px;
+            border-radius: 24px 24px 0 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 1.08rem;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="/images/logo.jpg" alt="Logo" width="48" height="48" class="me-2 rounded-circle">
+                <span class="fw-bold fs-4">Seefood Restaurant</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="/">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/menu">Thực Đơn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
+                    <li class="nav-item"><a class="btn btn-order ms-lg-3 mt-2 mt-lg-0" href="#">Đặt Ngay</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ALACARTE MENU -->
+    <div class="container mt-5">
+        <h2 class="section-title text-center">ALACARTE MENU</h2>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="/images/rice.png" class="card-img-top" alt="Cơm">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">CƠM / STEAMED RICE /
+                            飯
+                        </h5>
+                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
+                            HỆ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="/images/rau.png" class="card-img-top" alt="Món rau / Vegetables">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">RAU / VEGETABLES /時蔬
+                        </h5>
+                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
+                            HỆ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="/images/canhchua.png" class="card-img-top" alt="canhchua">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">CANH CHUA/ SOUR SOUP
+                            /酸湯</h5>
+                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
+                            HỆ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="/images/mi.png" class="card-img-top" alt="mi">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">MÌ / YELLOW EGG
+                            NOODLE / 麵類</h5>
+                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
+                            HỆ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4 mt-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="/images/chao-sup.png" class="card-img-top" alt="chao-sup">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">CHÁO - SÚP / RICE
+                            GRUEL - SOUP / 粥 - 羹類
+                        </h5>
+                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
+                            HỆ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="/images/chao-sup.png" class="card-img-top" alt="goi-salad">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">GỎI / SALADS / 涼拌類
+                        </h5>
+                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
+                            HỆ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="/images/chao-sup.png" class="card-img-top" alt="chao-sup">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">GỎI / SALADS / 涼拌類
+                        </h5>
+                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
+                            HỆ</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Thêm các danh mục khác tương tự -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5"
+        style="background: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%); border-radius: 2rem 2rem 0 0;">
+        <div class="container text-center py-4">
+            <img src="/images/logo.jpg" alt="Logo" width="56" height="56" class="mb-2 rounded-circle"
+                style="object-fit:cover;">
+            <p class="mb-1 fw-bold text-white" style="font-size:1.25rem; margin-top:8px;">
+                © 2025 Ra Khoi Restaurant. All rights reserved.
+            </p>
+            <p class="mb-0 fw-bold text-white" style="font-size:1.15rem;">
+                Hotline: <span style="color:#fff;">0901797969</span> | Địa chỉ: <span style="color:#fff;">131 BIS KHU
+                    PHỐ 1 TT. DƯƠNG ĐÔNG, HUYỆN PHÚ QUỐC, TỈNH KIÊN GIANG</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
