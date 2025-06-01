@@ -9,6 +9,15 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ALACARTE MENU -->
+<div class="container mt-5">
+    <h2 class="section-title text-center">ALACARTE MENU</h2>
+    <div id="menu-items" class="row g-4">
+        <!-- Các món ăn sẽ được sinh tự động ở đây -->
+    </div>
+</div>
+
     <style>
         body {
             background: linear-gradient(135deg, #e0f7fa 0%, #fffbe7 100%);
@@ -105,135 +114,145 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="/images/logo.jpg" alt="Logo" width="48" height="48" class="me-2 rounded-circle">
-                <span class="fw-bold fs-4">Seefood Restaurant</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="/">Trang Chủ</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/menu">Thực Đơn</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
-                    <li class="nav-item"><a class="btn btn-order ms-lg-3 mt-2 mt-lg-0" href="#">Đặt Ngay</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <script>
+    // Danh sách các món ăn
+    const menuData = [
+        {
+            img: "/images/rice.png",
+            title: "CƠM / STEAMED RICE "
+        },
+        {
+            img: "/images/rau.png",
+            title: "RAU / VEGETABLES"
+        },
+        {
+            img: "/images/canhchua.png",
+            title: "CANH CHUA / SOUR SOUP"
+        },
+        {
+            img: "/images/mi.png",
+            title: "MÌ / YELLOW EGG NOODLE "
+        },
+        {
+            img: "/images/chao-sup.png",
+            title: "CHÁO - SÚP / RICE GRUEL - SOUP "
+        },
+        {
+            img: "/images/goi.png",
+            title: "GỎI / SALADS "
+        },
+        {
+             img: "/images/squid.png",
+             title: "Mực / Squid"
+        },
+        {
+             img: "/images/beef-pig.png",
+             title: "Bò-Heo / Beef-Pig"
+        },
+        {
+             img: "/images/chicken.png",
+             title: "Gà / Chicken"
+        },
+        {
+            img: "/images/crabhand-carb.png",
+             title: " Cua / Crab"
+        },
+        {
+            img: "/images/dauhu-coivienmai.png",
+            title: "Đậu hũ- Còi viên mai / Tofu - Scallop"
+        },
+        {
+            img: "/images/doitrg.png",
+            title: "Khô mực - Dồi trường / Dried Squid - Stuffed Intestine"
+        },
+        {
+            img: "/images/echxao.png",
+            title: "Ếch / Frog"
+        },
+        {
+            img: "/images/greengrab.png",
+            title: "Ghẹ - Tôm tích / Green Crab - Prawn lett"
+        },
+        {
+            img: "/images/hao-trung.png",
+            title: "Hào - Trứng  / Oysters - Eggs"
+        },
+        {
+            img: "/images/hotpot.png",
+            title: "Lẩu / Hotpot"
+        },
+         {
+            img: "/images/lizard- bopfish.png",
+            title: "Cá kèo - Cá bớp / Mudfish - Bop Fish"
+        },  
+        {
+            img: "/images/lobster.png",
+            title: "Tôm hùm / Lobster"
+        }, 
+         {
+            img: "/images/mu fish.png",
+            title: "Cá mú / Mu Fish"
+        }, 
+         {
+            img: "/images/ngheu-ocnhay.png",
+            title: "Nghêu - Ốc nhảy / Clams - Jumping Snails"
+        }, 
+         {
+            img: "/images/ocbuu.png",
+            title: "Ốc bưu - Sò tô / Apple snails - Shellfish"
+        }, 
+        {
+            img: "/images/ocgiac-ocmo.png",
+            title: "Ốc giác - Ốc mỡ / Triangle snail - Fattening snail"
+        }, 
+        {
+            img: "/images/sohuyet-soquat.png",
+            title: "Sò huyết - Sò quạt / Blood scallop - Fan shaped scallop"
+        }, 
+        {
+            img: "/images/solong-hotvitlon.png",
+            title: "Sò lông - Hột vịt lộn / Hairy scallop - Half hacked duck egg"
+        }, 
+        {
+            img: "/images/tiger pawn.png",
+            title: "Tôm sú / Tiger Prawn"
+        }, 
+        {
+            img: "/images/tom mu ni.png",
+            title: "Tôm mũ ni / Mu Ni Prawn"
+        }, 
+        {
+            img: "/images/drink.png",
+            title: "Nước uống / Drinks"
+        },
+      
+       
+        // Bạn có thể thêm bao nhiêu món cũng được
+    ];
 
+    // Vị trí để render các món ăn
+    const menuContainer = document.getElementById("menu-items");
 
-    <!-- ALACARTE MENU -->
-    <div class="container mt-5">
-        <h2 class="section-title text-center">ALACARTE MENU</h2>
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <img src="/images/rice.png" class="card-img-top" alt="Cơm">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">CƠM / STEAMED RICE /
-                            飯
-                        </h5>
-                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
-                            HỆ</a>
-                    </div>
+    // Duyệt qua từng món trong danh sách và tạo HTML
+    menuData.forEach(item => {
+        const col = document.createElement("div");
+        col.className = "col-lg-3 col-md-6";
+        col.innerHTML = `
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="${item.img}" class="card-img-top" alt="${item.title}">
+                <div class="card-body text-center">
+                    <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">
+                        ${item.title}
+                    </h5>
+                    <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">
+                        LIÊN HỆ
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <img src="/images/rau.png" class="card-img-top" alt="Món rau / Vegetables">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">RAU / VEGETABLES /時蔬
-                        </h5>
-                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
-                            HỆ</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <img src="/images/canhchua.png" class="card-img-top" alt="canhchua">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">CANH CHUA/ SOUR SOUP
-                            /酸湯</h5>
-                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
-                            HỆ</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <img src="/images/mi.png" class="card-img-top" alt="mi">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">MÌ / YELLOW EGG
-                            NOODLE / 麵類</h5>
-                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
-                            HỆ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row g-4 mt-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <img src="/images/chao-sup.png" class="card-img-top" alt="chao-sup">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">CHÁO - SÚP / RICE
-                            GRUEL - SOUP / 粥 - 羹類
-                        </h5>
-                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
-                            HỆ</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <img src="/images/chao-sup.png" class="card-img-top" alt="goi-salad">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">GỎI / SALADS / 涼拌類
-                        </h5>
-                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
-                            HỆ</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <img src="/images/chao-sup.png" class="card-img-top" alt="chao-sup">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold mb-2" style="font-family:'Montserrat',Arial,sans-serif;">GỎI / SALADS / 涼拌類
-                        </h5>
-                        <a href="tel:0901797969" class="btn btn-link text-danger fw-bold fs-5 text-decoration-none">LIÊN
-                            HỆ</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Thêm các danh mục khác tương tự -->
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer mt-5"
-        style="background: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%); border-radius: 2rem 2rem 0 0;">
-        <div class="container text-center py-4">
-            <img src="/images/logo.jpg" alt="Logo" width="56" height="56" class="mb-2 rounded-circle"
-                style="object-fit:cover;">
-            <p class="mb-1 fw-bold text-white" style="font-size:1.25rem; margin-top:8px;">
-                © 2025 Ra Khoi Restaurant. All rights reserved.
-            </p>
-            <p class="mb-0 fw-bold text-white" style="font-size:1.15rem;">
-                Hotline: <span style="color:#fff;">0901797969</span> | Địa chỉ: <span style="color:#fff;">131 BIS KHU
-                    PHỐ 1 TT. DƯƠNG ĐÔNG, HUYỆN PHÚ QUỐC, TỈNH KIÊN GIANG</span>
-            </p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS Bundle CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        `;
+        menuContainer.appendChild(col);
+    });
+</script>
 </body>
 
 </html>
