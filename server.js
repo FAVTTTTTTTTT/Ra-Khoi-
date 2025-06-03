@@ -18,6 +18,11 @@ app.get('/', (req, res) => {
 app.get('/menu', (req, res) => {
     res.render('Menu', { title: 'Thực Đơn' });
 });
+// Route trang liên hệ
+app.get('/contact', (req, res) => {
+    res.render('Contact', { title: 'Liên Hệ' });
+});
+
 app.listen(PORT, () => {
     console.log(`Server đang chạy tại http://localhost:${PORT}`);
 });
