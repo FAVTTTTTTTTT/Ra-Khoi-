@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 // Route trang chủ
 app.get('/', (req, res) => {
-    res.render('home', { title: 'Trang Chủ', message: 'Chào mừng bạn đến với trang chủ!' });
+    res.render('Home', { title: 'Trang Chủ', message: 'Chào mừng bạn đến với trang chủ!' });
 });
 // Route trang thực đơn
 app.get('/menu', (req, res) => {

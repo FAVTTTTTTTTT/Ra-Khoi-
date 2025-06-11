@@ -10,7 +10,7 @@
   "description": "Duy",
   "main": "index.js",
   "scripts": {
-    "test": "s"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC"
