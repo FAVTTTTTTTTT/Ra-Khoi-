@@ -34,6 +34,43 @@ app.post('/contact', async (req, res) => {
             pass: 'mdjbzqbvbazdoxyg'    // Thay bằng app password (không phải mật khẩu Gmail)
         }
     });
+// Route trang đặt hàng
+app.post('/dathang', async (req, res) => {
+    res.render('dathang', { title: 'Đặt Món' });
+    const { name, phone, dish, quantity, note } = req.body;
+
+    // Cấu hình transporter với Gmail
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'nguyenquocduy574@gmail.com', // Email của bạn
+            pass: 'mdjbzqbvbazdoxyg' // App password (Gmail)
+        }
+    });
+
+    // Nội dung email đơn hàng
+    let mailOptions = {
+        from: 'nguyenquocduy574@gmail.com',
+        to: 'nguyenquocduy574@gmail.com',
+        subject: 'Đơn đặt món mới từ khách hàng',
+        html: `
+            <h3>Thông tin đơn hàng</h3>
+            <p><b>Khách hàng:</b> ${name}</p>
+            <p><b>SĐT:</b> ${phone}</p>
+            <p><b>Món đã đặt:</b> ${dish}</p>
+            <p><b>Số lượng:</b> ${quantity}</p>
+            <p><b>Ghi chú:</b> ${note || 'Không có'}</p>
+        `
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.send(`<h2>Đặt hàng thành công!</h2><p>Cảm ơn bạn ${name} đã đặt món.</p><a href="/DatHang">Đặt tiếp</a>`);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Có lỗi khi gửi đơn hàng, vui lòng thử lại sau.');
+    }
+});
 
     // Nội dung email
     let mailOptions = {
