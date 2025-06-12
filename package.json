@@ -8,9 +8,9 @@
   "name": "duy",
   "version": "1.0.0",
   "description": "Duy",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC"
