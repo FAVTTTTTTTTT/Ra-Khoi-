@@ -23,6 +23,10 @@ app.get('/menu', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('Contact', { title: 'Liên hệ', message: null, formData: {} });
 });
+// Route trang đặt hàng
+app.get('/dathang', (req, res) => {
+    res.render('dathang', { title: 'Đặt Món' });
+});
 app.post('/contact', async (req, res) => {
     const { name, email, phone, message } = req.body;
 

@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đặt Hàng | Seefood Restaurant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
@@ -28,8 +29,30 @@
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 8px 24px rgba(0, 147, 233, 0.15);
-      max-width: 700px;
-      margin: auto;
+      max-width: 1100px;
+      margin: 40px auto;
+    }
+
+    .form-section-title {
+      color: #e53935;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 6px;
+    }
+
+    .form-label {
+      font-weight: 600;
+    }
+
+    .form-control,
+    .form-select {
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 18px;
     }
 
     .btn-zalo {
@@ -39,24 +62,33 @@
       border-radius: 30px;
       padding: 10px 24px;
       transition: background 0.3s;
+      margin-top: 10px;
     }
 
     .btn-zalo:hover {
       background-color: #007acc;
     }
 
-    .form-label {
-      font-weight: 600;
+    .form-check-label {
+      font-size: 0.98rem;
     }
 
-    .form-control, .form-select {
-      border-radius: 12px;
-      padding: 10px;
+    .confirm-btn {
+      width: 100%;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      padding: 12px 0;
+      margin-top: 18px;
+      background: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%);
+      color: #fff;
+      border: none;
+      transition: background 0.3s;
     }
 
-    .zalo-box {
-      text-align: center;
-      margin-top: 30px;
+    .confirm-btn:disabled {
+      background: #ccc;
+      color: #fff;
     }
 
     footer {
@@ -67,31 +99,130 @@
       padding: 20px 0;
       border-radius: 20px 20px 0 0;
     }
+
+    @media (max-width: 991px) {
+      .order-form {
+        max-width: 98%;
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 
 <body>
-<form action="/DatHang" method="POST">
-  <input type="text" name="name" ...>
-  <input type="tel" name="phone" ...>
-  <select name="dish">...</select>
-  <input type="number" name="quantity" ...>
-  <textarea name="note"></textarea>
-  <button type="submit">Gửi đơn hàng</button>
-</form>
-        <a href="https://zalo.me/ZALO_PHONE_NUMBER" class="btn btn-zalo" target="_blank">
-          Nhắn Zalo Ngay
-        </a>
-      </div>
+  <%- include('partials/header') %>
+
+    <div class="order-form mt-5">
+      <form action="/DatHang" method="POST">
+        <div class="row">
+          <!-- Thông tin liên hệ -->
+          <div class="col-lg-6 col-md-12">
+            <div class="form-section-title">THÔNG TIN LIÊN HỆ</div>
+            <div class="mb-2">
+              <label class="form-label">Họ và tên người đặt *</label>
+              <input type="text" class="form-control" name="name" placeholder="Nhập họ tên" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Số điện thoại *</label>
+              <input type="tel" class="form-control" name="phone" placeholder="Nhập số điện thoại" required>
+            </div>
+          </div>
+          <!-- Thông tin buổi tiệc -->
+          <div class="col-lg-6 col-md-12">
+            <div class="form-section-title">THÔNG TIN BUỔI TIỆC</div>
+            <div class="mb-2">
+              <label class="form-label d-block">Loại tiệc *</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="party_type" id="birthday" value="Tiệc sinh nhật"
+                  checked>
+                <label class="form-check-label" for="birthday">Tiệc sinh nhật</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="party_type" id="party" value="Tiệc liên hoan">
+                <label class="form-check-label" for="party">Tiệc liên hoan</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="party_type" id="party" value="Tiệc hội nghị">
+                <label class="form-check-label" for="party">Tiệc hội nghị</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="party_type" id="party" value="Tiệc khách đoàn">
+                <label class="form-check-label" for="party">Tiệc khách đoàn</label>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-4">
+                <label class="form-label">Ngày *</label>
+                <select class="form-select" name="day" required>
+                  <option value="">Ngày</option>
+                  <% for(let i=1;i<=31;i++){ %>
+                    <option value="<%= i %>">
+                      <%= i %>
+                    </option>
+                    <% } %>
+                </select>
+              </div>
+              <div class="col-4">
+                <label class="form-label">Tháng *</label>
+                <select class="form-select" name="month" required>
+                  <option value="">Tháng</option>
+                  <% for(let i=1;i<=12;i++){ %>
+                    <option value="<%= i %>">
+                      <%= i %>
+                    </option>
+                    <% } %>
+                </select>
+              </div>
+              <div class="col-4">
+                <label class="form-label">Năm *</label>
+                <select class="form-select" name="year" required>
+                  <option value="">Năm</option>
+                  <% for(let i=2024;i<=2030;i++){ %>
+                    <option value="<%= i %>">
+                      <%= i %>
+                    </option>
+                    <% } %>
+                </select>
+              </div>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Số lượng người tham dự *</label>
+              <select class="form-select" name="quantity" required>
+                <option value="">Số lượng</option>
+                <% for(let i=2;i<=100;i+=2){ %>
+                  <option value="<%= i %>">
+                    <%= i %>
+                  </option>
+                  <% } %>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-12">
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="agree" required>
+              <label class="form-check-label" for="agree">
+                Tôi đã đọc và đồng ý với các <a href="#" target="_blank">Chính Sách Hoạt Động</a> và <a href="#"
+                  target="_blank">Chính Sách Bảo Mật Thông Tin</a> của Seefood Restaurant.
+              </label>
+            </div>
+            <button type="submit" class="confirm-btn">XÁC NHẬN ĐẶT TIỆC</button>
+            <div class="text-center">
+              <a href="https://zalo.me/0866179832" class="btn btn-zalo" target="_blank">
+                Nhắn Zalo Ngay
+              </a>
+            </div>
+            <div class="mt-4 mb-3 text-center">
+              
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
-  </div>
 
-  <footer class="mt-5">
-    <p>© 2025 Seefood Restaurant | Hotline: 0901797969</p>
-    <p>Địa chỉ: 131 BIS Khu phố 1, TT. Dương Đông, Phú Quốc, Kiên Giang</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <%- include('partials/footer') %>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
